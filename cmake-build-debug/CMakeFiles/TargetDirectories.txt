@@ -1,0 +1,3 @@
+C:/Users/Alix/OneDrive - Brigham Young University/CS235/Lab5_Sorting/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Alix/OneDrive - Brigham Young University/CS235/Lab5_Sorting/cmake-build-debug/CMakeFiles/Lab5_Sorting.dir
+C:/Users/Alix/OneDrive - Brigham Young University/CS235/Lab5_Sorting/cmake-build-debug/CMakeFiles/rebuild_cache.dir
