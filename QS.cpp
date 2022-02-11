@@ -61,14 +61,13 @@ bool QS::createArray(int capacity)
 
 	arrayCapacity = capacity;
 
-	int* newArray = new int[arrayCapacity];
-
 	if (intArray != nullptr)
 	{
 		delete intArray;
 	}
 
-	intArray = newArray;
+	intArray = new int[arrayCapacity];
+	valueCount = 0;
 
 	return true;
 }
@@ -89,8 +88,7 @@ int QS::partition(int leftIdx, int rightIdx, int pivotIndex)
 int QS::medianOfThree(int leftIdx, int rightIdx)
 {
 	if (leftIdx >= rightIdx ||
-		leftIdx < 0 || rightIdx < 0 ||
-		rightIdx >)
+		leftIdx < 0 || rightIdx < 0)
 	{
 		return -1;
 	}
