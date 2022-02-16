@@ -32,10 +32,7 @@ public:
 	void clear() override;
 
 	template<typename T>
-	void BubbleSort(T arr[], int n);
-
-	template<typename T>
-	static void Swap(T* val1, T* val2);
+	static void Swap(T val1, T val2);
 };
 
 /* 2 7 2 5 8 9 1 2 3

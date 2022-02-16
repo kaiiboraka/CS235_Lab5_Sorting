@@ -1,0 +1,166 @@
+createArray 5 True
+addToArray 1 True
+addToArray 2 True
+addToArray 3 True
+addToArray 4 True
+addToArray 5 True
+getArray
+ 1,2,3,4,5
+clear 
+getArray
+ 
+getSize 5
+createArray 5 True
+getArray
+ 
+getSize 0
+addToArray -5 True
+getSize 1
+addToArray -4 True
+getSize 2
+getArray
+ -5,-4,0,0,5
+addToArray -3 True
+addToArray -2 True
+getSize 4
+addToArray -1 True
+getSize 5
+getArray
+ -5,-4,-3,-2,-1
+addToArray 6 False
+getSize 5
+getArray
+ -5,-4,-3,-2,-1
+createArray 5 True
+addToArray 10 True
+addToArray 5 True
+addToArray 0 True
+addToArray -5 True
+addToArray -10 True
+getArray
+ 10,5,0,-5,-10
+medianOfThree 0 4 2
+getArray
+ 10,5,0,-5,-10
+medianOfThree 0 0 -1
+getArray
+ 10,5,0,-5,-10
+medianOfThree 0 2 1
+getArray
+ 10,5,0,-5,-10
+medianOfThree 1 3 2
+getArray
+ 10,5,0,-5,-10
+createArray 10 True
+getArray
+ 
+addToArray 10 True
+addToArray 9 True
+addToArray 8 True
+addToArray 7 True
+addToArray 6 True
+addToArray 5 True
+addToArray 4 True
+addToArray 3 True
+addToArray 2 True
+addToArray 1 True
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+medianOfThree 0 9 4
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+medianOfThree 0 2 1
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+medianOfThree 2 4 3
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+medianOfThree 4 6 5
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+medianOfThree 6 8 7
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+createArray 4 True
+addToArray 2 True
+addToArray 1 True
+addToArray 1 True
+addToArray 1 True
+getArray
+ 2,1,1,1
+medianOfThree 1 3 2
+getArray
+ 2,1,1,1
+medianOfThree 0 2 1
+getArray 
+ 2,1,1,1
+medianOfThree 0 3 1
+getArray
+ 2,1,1,1
+medianOfThree 1 3 2
+getArray
+ 2,1,1,1
+createArray 10 True
+addToArray 10 True
+addToArray 9 True
+addToArray 8 True
+addToArray 7 True
+addToArray 6 True
+addToArray 5 True
+addToArray 4 True
+addToArray 3 True
+addToArray 2 True
+addToArray 1 True
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 9 9 2
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 9 0 2
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 4 2 7
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 5 9 7 2
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 9 4 2
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 9 7 2
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 9 6 2
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 5 5 6
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 7 4 4
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 9 3 2
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 2 2 9
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+partition 0 3 1 8
+getArray
+ 10,9,8,7,6,5,4,3,2,1
+createArray 6 True
+addToArray 2 True
+addToArray 2 True
+addToArray 2 True
+addToArray 3 True
+addToArray 1 True
+addToArray 2 True
+getArray
+ 2,2,2,3,1,2
+partition 0 2 1 0
+getArray
+ 2,2,2,3,1,2
+partition 0 4 4 0
+getArray
+ 2,2,2,3,1,2
