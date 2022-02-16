@@ -9,7 +9,7 @@ class QS : public QSInterface
 {
 protected:
 	int valueCount, arrayCapacity;
-	int* intArray;
+	int* intArray = NULL;
 public:
 	QS();
 
@@ -20,6 +20,8 @@ public:
 	int medianOfThree(int leftIdx, int rightIdx) override;
 
 	int partition(int leftIdx, int rightIdx, int pivotIndex) override;
+
+	void quickSort(int left, int right); // TODO: does it need pivot?
 
 	string getArray() const override;
 
@@ -32,7 +34,7 @@ public:
 	void clear() override;
 
 	template<typename T>
-	static void Swap(T val1, T val2);
+	static void Swap(T& val1, T& val2);
 };
 
 /* 2 7 2 5 8 9 1 2 3

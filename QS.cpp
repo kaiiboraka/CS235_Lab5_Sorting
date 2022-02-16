@@ -6,7 +6,7 @@
 
 QS::QS()
 {
-	intArray = new int[15];
+	intArray = NULL;
 	valueCount = 0;
 }
 
@@ -17,22 +17,51 @@ QS::~QS()
 
 void QS::sortAll()
 {
+	if(valueCount <= 1)
+	{
+		return;
+	}
+
+	quickSort(0, valueCount - 1); // TODO: double check if needs be -1
 }
+
+void QS::quickSort(int left, int right)
+{
+
+	int pivotIdx = medianOfThree(left, right);
+
+	if (pivotIdx < 0)
+	{
+		return;
+	}
+
+	pivotIdx = partition(left, right, pivotIdx);
+
+	if (pivotIdx < 0)
+	{
+		return;
+	}
+
+	quickSort(left, pivotIdx - 1);
+	quickSort(pivotIdx + 1, right);
+}
+
 
 string QS::getArray() const
 {
-	if(	intArray   == nullptr ||
-		valueCount == 0)
+	if(	intArray == NULL ||
+		valueCount < 1)
 	{
 		return "";
 	}
 
-	string arrayString;
+	string arrayString = "";
 
-	for (int i = 0; i < arrayCapacity; i++)
+	for (int i = 0; i < valueCount; i++)
 	{
 		arrayString += to_string(intArray[i]);
-		if(i < arrayCapacity - 1)
+
+		if(i < valueCount - 1)
 		{
 			arrayString += ",";
 		}
@@ -62,7 +91,7 @@ bool QS::addToArray(int value)
 
 bool QS::createArray(int capacity)
 {
-	// TODO: POTENTIAL ERROR
+	// TODO: might need to be 0?
 	if (capacity < 1)
 	{
 		return false;
@@ -72,6 +101,7 @@ bool QS::createArray(int capacity)
 	{
 		clear();
 	}
+
 	arrayCapacity = capacity;
 
 	intArray = new int[arrayCapacity];
@@ -84,6 +114,8 @@ void QS::clear()
 {
 	delete[] intArray;
 	intArray = NULL;
+	valueCount = 0;
+	arrayCapacity = 0;
 }
 
 int QS::partition(int leftIdx, int rightIdx, int pivotIndex)
@@ -92,8 +124,8 @@ int QS::partition(int leftIdx, int rightIdx, int pivotIndex)
 	{
 		return -1;
 	}
-	if (intArray == nullptr ||
-		QS::getSize() <= 1 ||
+	if (intArray == NULL ||
+		valueCount <= 1 ||
 		leftIdx < 0 || 
 		rightIdx < 0 ||
 		leftIdx >= arrayCapacity || 
@@ -103,58 +135,73 @@ int QS::partition(int leftIdx, int rightIdx, int pivotIndex)
 	{
 		return -1;
 	}
-
-	//pivotIndex = medianOfThree(leftIdx, rightIdx);
 	Swap(intArray[leftIdx], intArray[pivotIndex]);
 
 	int upIdx = leftIdx + 1;
-	int downIdx = rightIdx - 1;
-
-	for (int i = 0; i < valueCount; i++)
-	{
-		cout << intArray[i] << " ";
-	}
-	cout << endl;
+	int downIdx = rightIdx;
 
 	do
 	{
-		while (intArray[upIdx] <= intArray[leftIdx])
+		// out of bounds check && size value check
+		while((upIdx < rightIdx) && (intArray[upIdx] <= intArray[leftIdx]))
 		{
 			upIdx++;
-			// if(upIdx >= rightIdx - 1) break;
 		}
-		while (intArray[downIdx] >= intArray[leftIdx])
+		while((downIdx != leftIdx) && (intArray[downIdx] > intArray[leftIdx]))
 		{
 			downIdx--;
-			// if(downIdx <= leftIdx + 1) break;
 		}
 
-		if (intArray[upIdx] < intArray[downIdx])
+		if (upIdx < downIdx)
 		{
 			Swap(intArray[upIdx], intArray[downIdx]);
 		}
 
-	} while (upIdx <= downIdx);
+	} while (upIdx < downIdx);
 
 	// put pivot value back in the center
 	Swap(intArray[leftIdx], intArray[downIdx]);
 
 	// return the pivot value
-	return intArray[downIdx];
+	return downIdx;
 }
 
 int QS::medianOfThree(int leftIdx, int rightIdx)
 {
-	if (
-		leftIdx >= rightIdx ||
-		leftIdx < 0 || rightIdx < 0 ||
-		rightIdx > arrayCapacity)
+	bool isBorked = false;
+	string errStr = "";
+	if (valueCount == 0)
 	{
+		errStr = "empty array";
+		isBorked = true;
+	}
+	if (leftIdx < 0 || rightIdx < 0)
+	{
+		errStr = "L or R idx is < 0";
+		isBorked = true;
+	}
+	if (leftIdx >= rightIdx)
+	{
+		errStr = "leftIdx is not < rightIdx";
+		isBorked = true;
+	}
+	if(leftIdx >= valueCount - 1 || rightIdx >= valueCount)
+	{	
+		errStr = "L or R idx is > valueCount";
+		isBorked = true;
+	}
+	if (isBorked)
+	{
+		cerr << "IS BORKED! " << errStr << endl;
+		cout << "leftIdx: " << leftIdx << "\t\trightIdx: " << rightIdx << endl;
 		return -1;
 	}
+
 	// also catch if they're... out of bounds?? how do I know that??
 
 	int medianIndex = (leftIdx + rightIdx) / 2;
+
+	//printf("LeftV: %*d\tMidV: %*d\tRightV: %*d\n", 3, intArray[leftIdx], 3, intArray[medianIndex], 3, intArray[rightIdx]);
 
 	if (intArray[leftIdx] > intArray[medianIndex])
 	{
@@ -173,7 +220,7 @@ int QS::medianOfThree(int leftIdx, int rightIdx)
 }
 
 template <typename T>
-void QS::Swap(T val1, T val2)
+void QS::Swap(T& val1, T& val2)
 {
 	T temp = val1;
 	val1 = val2;
