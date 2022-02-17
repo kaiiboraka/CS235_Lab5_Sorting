@@ -68,7 +68,6 @@ void parse_instruction(string temp, ofstream& ofs, QS* aptr)
 	string command, expression;
 	stringstream ss(temp);
 
-	QS newSorter;
 
 
 	if (!(ss >> command))

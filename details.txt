@@ -2,6 +2,4 @@ out_file1.txt
 out_file2.txt
 out_file3.txt
 out_file4.txt
-partition 0 3 2 -1					      |	partition 0 3 2 3
- 1,2,3							      |	 0,2,1
 out_file5.txt
