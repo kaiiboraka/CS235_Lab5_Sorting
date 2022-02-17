@@ -27,20 +27,23 @@ void QS::sortAll()
 
 void QS::quickSort(int left, int right)
 {
-
-	int pivotIdx = medianOfThree(left, right);
-
-	if (pivotIdx < 0)
+	if(right - left < 1)
 	{
 		return;
 	}
+	int pivotIdx = medianOfThree(left, right);
+
+	// if (pivotIdx < 0)
+	// {
+	// 	return;
+	// }
 
 	pivotIdx = partition(left, right, pivotIdx);
 
-	if (pivotIdx < 0)
-	{
-		return;
-	}
+	// if (pivotIdx < 0)
+	// {
+	// 	return;
+	// }
 
 	quickSort(left, pivotIdx - 1);
 	quickSort(pivotIdx + 1, right);
